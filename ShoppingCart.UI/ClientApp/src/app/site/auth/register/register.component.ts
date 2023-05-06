@@ -28,13 +28,17 @@ export class RegisterComponent implements OnInit {
       name: ['', [Validators.required, Validators.maxLength(50)]],
       lastName: ['', [Validators.required, Validators.maxLength(100)]],
       email: ['', [Validators.email]],
-      password: ['', [Validators.required, Validators.maxLength(30)]],
+      password: ['', [Validators.required, Validators.maxLength(30), Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$/)]],
       address: ['', [Validators.required, Validators.maxLength(150)]]
     });
   }
 
 
   save(): void {
+    if (this.form.invalid) {
+      this.notificationService.open('Fill all this fields', 'Error');
+      return;
+    }
     this.accountService.create(this.form.value)
       .subscribe({
         next: (idUser: number) => {
