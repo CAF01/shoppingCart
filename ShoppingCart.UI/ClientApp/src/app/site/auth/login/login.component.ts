@@ -6,6 +6,7 @@ import { AccountService } from '../services/account.service';
 import { LoginResponse } from '../models/response/login-response';
 import { MatDialog } from '@angular/material/dialog';
 import { RegisterComponent } from '../register/register.component';
+import { NotificationService } from '../../../infrastructure/services/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
     private accountService: AccountService,
     private authService: AuthService,
     private router: Router,
-    public dialog: MatDialog) {
+    public dialog: MatDialog,
+    private notificationService: NotificationService) {
 
   }
 
@@ -31,7 +33,7 @@ export class LoginComponent implements OnInit {
 
   private createForm() {
     this.form = this.fb.group({
-      email: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required,Validators.email,Validators.maxLength(50)]),
       password: new FormControl('', [Validators.required,
       Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$/)
       ])
@@ -39,6 +41,11 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    if (this.form.invalid) {
+      this.notificationService.open('Please enter a valid email and password', 'Error');
+      return;
+    }
+      
     this.accountService.login(this.form?.value).subscribe({
       next: (user: LoginResponse) => this.loginResponse(user),
       error: (e) => { }
