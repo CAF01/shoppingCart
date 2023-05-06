@@ -32,7 +32,7 @@ namespace ShoppingCart.Entitys.ValidatorsDTOs.Clients
             RuleFor(u => u.Password)
             .NotNull()
             .NotEmpty().WithMessage("Password is required.")
-            .MaximumLength(8);
+            .MaximumLength(30);
 
         }
     }

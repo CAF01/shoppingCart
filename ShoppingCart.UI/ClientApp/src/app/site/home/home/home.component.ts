@@ -41,7 +41,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   getArticles(): void {
-    this.articleService.getArticles(this.authService.currentStore.idStore)
+
+    let idStore = this.authService.currentStore?.idStore || 0;
+
+    this.articleService.getArticles(idStore)
       .subscribe({ next: (response) => this.articles = response });
   }
 
