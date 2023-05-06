@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  API_URL: 'https://localhost:7160/api/',
+  API_URL: 'https://shopping-cart-apis.azurewebsites.net/api/',
 };
