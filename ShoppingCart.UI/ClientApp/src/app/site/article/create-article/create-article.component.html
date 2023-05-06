@@ -1,0 +1,127 @@
+<h2 class="ml-1">New Article</h2>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="form" class="w-full mx-auto mt-4">
+
+        <div class="mb-2">
+
+            <label class="block text-gray-700 font-bold mb-2" for="code">
+                Code
+            </label>
+
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="code" type="text" placeholder="Enter Article Code" formControlName="code" required>
+
+        </div>
+
+
+        <div *ngIf="form.controls['code'].hasError('required') " class="float-right">
+            <label class="text-3 text-red-500 font-bold">
+                Code is required!
+            </label>
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2" for="store">
+                Store
+            </label>
+            <store-filter (onSelectStore)="onSelectStore($event)" id="store"></store-filter>
+
+            <div *ngIf="form.controls['idStore'].invalid" class="float-right">
+                <label class="text-3 text-red-500 font-bold">
+                    Store is required!
+                </label>
+            </div>
+
+        </div>
+
+
+
+
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2" for="description">
+                Description
+            </label>
+
+            <textarea
+                class="w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="description" placeholder="Enter Article Description" formControlName="description"
+                required></textarea>
+
+
+        </div>
+
+        <div *ngIf="form.controls['description'].hasError('required') " class="float-right">
+            <label class="text-3 text-red-500 font-bold">
+                Description is required!
+            </label>
+        </div>
+
+
+
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2" for="price">
+                Price
+            </label>
+            <input type="number"
+                class="w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="price" placeholder="Enter Article Price" formControlName="price" required>
+
+
+        </div>
+
+        <div *ngIf="form.controls['price'].invalid" class="float-right">
+            <label class="text-3 text-red-500 font-bold">
+                Price is required!
+            </label>
+        </div>
+
+
+
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2" for="stock">
+                Stock
+            </label>
+            <input type="number"
+                class="w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="stock" placeholder="Enter Article Stock" formControlName="stock" required>
+
+        </div>
+
+        <div *ngIf="form.controls['stock'].invalid " class="float-right">
+            <label class="text-3 text-red-500 font-bold">
+                Stock is required!
+            </label>
+        </div>
+
+
+
+        <div class="mb-4">
+            <upload-file (onSelectFile)="loadImage($event)"></upload-file>
+        </div>
+
+        <div *ngIf="form.controls['image'].invalid " class="float-right">
+            <label class="text-3 text-red-500 font-bold">
+                Image is required!
+            </label>
+        </div>
+
+    </form>
+
+</mat-dialog-content>
+
+<div mat-dialog-actions class="relative">
+   
+        <button cdkFocusInitial type="button" (click)="dialogRef.close(null);"
+            class="absolute right-20 bg-red-600  hover:bg-bg-red-800 cursor-pointer text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ">
+            Cancel
+        </button>
+
+        <button (click)="add()" type="button" [disabled]="form.invalid"
+            class="absolute right-2 bg-cyan-DEFAULT-950  hover:bg-cyan-DEFAULT-950 cursor-pointer text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-4">
+            Save
+        </button>
+
+
+
+</div>

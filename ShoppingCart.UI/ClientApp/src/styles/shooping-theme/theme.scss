@@ -1,0 +1,19 @@
+@use "./palettes";
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$shoping-cart-primary: mat.define-palette(palettes.$shoping-cart-primary, 800, 500, 900);
+$shoping-cart-accent: mat.define-palette(palettes.$shoping-cart-accent);
+$shoping-cart-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $shoping-cart-primary,
+      accent: $shoping-cart-accent,
+    ),
+  )
+);
+
+// @include mat.core-theme($shoping-cart-theme);
+@include mat.all-component-themes($shoping-cart-theme);
+
