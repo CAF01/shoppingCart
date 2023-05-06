@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit {
 
   private createForm() {
     this.form = this.fb.group({
-      email: new FormControl('', [Validators.required,Validators.email,Validators.maxLength(50)]),
-      password: new FormControl('', [Validators.required,
+      email: new FormControl('anayeli.vargas@solotalento.com.mx', [Validators.required,Validators.email,Validators.maxLength(50)]),
+      password: new FormControl('FromTalenteca123', [Validators.required,
       Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}$/)
       ])
     });

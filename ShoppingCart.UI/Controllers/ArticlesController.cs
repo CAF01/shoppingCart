@@ -42,6 +42,7 @@ namespace ShoppingCart.Controllers
         }
 
         [HttpPost("upload-image")]
+        [RequestSizeLimit(2097152)] // límite de 2 MB
         public async Task<string> UploadCode([FromForm] IFormFile formFile)
         {
             var Result = await uploadArticlePhotoInputPort.Handle(formFile);
