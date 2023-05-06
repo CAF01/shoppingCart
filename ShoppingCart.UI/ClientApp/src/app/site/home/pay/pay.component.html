@@ -1,0 +1,57 @@
+<div mat-dialog-content>
+    <table mat-table [dataSource]="resume" class="mat-elevation-z8">
+
+        <!-- User Column -->
+        <ng-container matColumnDef="Code">
+            <th mat-header-cell *matHeaderCellDef>
+                <p class="text-black font-bold text-4">
+                    Code
+                </p>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.article}}
+            </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Count">
+            <th mat-header-cell *matHeaderCellDef>
+
+                <p class="text-black font-bold text-4">
+                    Count
+                </p>
+
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.count}} </td>
+        </ng-container>
+
+        <!-- Role Column -->
+        <ng-container matColumnDef="Total">
+            <th mat-header-cell *matHeaderCellDef>
+
+                <p class="text-black font-bold text-4">
+                    Total
+                </p>
+
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.total}}</td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <br>
+
+
+    <button  (click)="pay()" type="button" 
+        class="bg-cyan-DEFAULT-950 float-right hover:bg-cyan-DEFAULT-950 cursor-pointer text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-4">
+        Pay
+    </button>
+
+    <button cdkFocusInitial type="button" (click)="dialogRef.close(null);"
+        class="bg-red-600 float-right hover:bg-bg-red-800 cursor-pointer text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        Cancel
+    </button>
+
+</div>

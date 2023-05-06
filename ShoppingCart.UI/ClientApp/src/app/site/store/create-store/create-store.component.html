@@ -1,0 +1,50 @@
+
+<h2 class="ml-1">New Branch</h2>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="form" class="w-full mx-auto mt-4" >
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="branch">
+            Branch
+          </label>
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                 id="branch"
+                 type="text"
+                 placeholder="Enter branch name"
+                 formControlName="branch"
+                 required>
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 font-bold mb-2" for="address">
+            Address
+          </label>
+          <textarea class="w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="address"
+                    placeholder="Enter branch address"
+                    formControlName="address"
+                    required></textarea>
+        </div>
+
+   
+       
+          <button  type="button"
+            (click)="add()"
+            [disabled]="!form.valid" 
+            class="bg-cyan-DEFAULT-950 float-right hover:bg-cyan-DEFAULT-950 cursor-pointer text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-4" 
+            >
+            Save
+          </button>
+
+          <button  type="button"
+          (click)="dialogRef.close(null);"
+          class="bg-red-600 float-right hover:bg-bg-red-800 cursor-pointer text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
+          >
+          Cancel
+        </button>
+      
+      </form>
+    
+</mat-dialog-content>
+
+
+
+

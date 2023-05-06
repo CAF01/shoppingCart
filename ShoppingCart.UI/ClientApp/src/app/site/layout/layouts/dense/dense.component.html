@@ -1,0 +1,41 @@
+<mat-sidenav-container class="h-full">
+  <!-- Side Navigator -->
+  <mat-sidenav #sidenav mode="over" class="rounded h-ful">
+    <navigation (sidenavClose)="sidenav.close()"></navigation>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- Header -->
+    <div
+      class="flex items-center bg-cyan-DEFAULT-950 sticky justify-between flex-wrap  p-4 h-16 w-full top-0 bottom-0 left-0 shadow-sm">
+      <!-- Nombre Ruta y Menú -->
+      <div class="flex flex-row items-center gap-x-1">
+        <!-- Menú -->
+        <div class="flex items-center">
+          <mat-icon (click)="sidenav.toggle()"
+            class="fill-current mr-2 text-white hover:text-gray-400 hover:cursor-pointer"
+            svgIcon="heroicons_outline:menu"></mat-icon>
+        </div>
+        <!-- Título Ruta -->
+        <div class="font-medium self-center text-xl text-white">
+          <!-- // TODO Poner nombre de título de ruta -->
+          <span>Shopping Cart {{authService.storeLabel}}</span>
+        
+        </div>
+      </div>
+      <!-- Botones de Acción -->
+      <div>
+        <action-button></action-button>
+      </div>
+
+    </div>
+
+    <!-- Content -->
+    <div class="overflow-hidden content-height">
+      <div class="w-full h-full rounded p-4 bg-accent-50 shadow-lg overflow-y-auto">
+     
+        <app-loader></app-loader>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

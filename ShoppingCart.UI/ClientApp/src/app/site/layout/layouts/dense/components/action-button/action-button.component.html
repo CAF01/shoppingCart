@@ -1,0 +1,19 @@
+<button  mat-icon-button [matMenuTriggerFor]="menu" [matBadgeHidden]="!newStoreAlert" matBadge="1" matBadgePosition="before">
+  <mat-icon class="text-white">{{newStoreAlert?'notifications':'room'}}</mat-icon>
+</button>
+
+
+<mat-menu #menu="matMenu">
+  
+  <store-select></store-select>
+
+  <mat-divider></mat-divider>
+
+  <button (click)="signOff()" mat-menu-item>
+    <mat-icon>logout</mat-icon>
+    <span>Logout</span>
+  </button>
+
+
+
+</mat-menu>

@@ -1,0 +1,14 @@
+
+ 
+    <mat-form-field>
+        <input type="text" matInput [formControl]="storeControl" [matAutocomplete]="auto">
+        <mat-autocomplete  #auto="matAutocomplete" [displayWith]="displayStorekFn"
+            (optionSelected)="selectStore($event)">
+            <mat-option mul *ngFor="let store of filteredStoreOptions | async" [value]="store">
+                <p class="text-5"> {{store.branch}}</p>
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+
+
+

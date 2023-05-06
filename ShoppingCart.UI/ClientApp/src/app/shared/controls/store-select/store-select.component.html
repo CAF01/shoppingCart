@@ -1,0 +1,4 @@
+<button *ngFor="let store of stores" (click)="setStore(store)"  mat-menu-item>
+    <mat-icon>room</mat-icon>
+    <span>{{store.branch}}</span>
+  </button>

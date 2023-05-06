@@ -1,0 +1,31 @@
+<div class="overflow-y-auto py-6 px-4 bg-cyan-DEFAULT-950 rounded h-full max-h-full w-80">
+  <!-- Logo -->
+  <div class="flex items-center gap-x-1 mb-5">
+    <span class="self-center text-xl font-semibold whitespace-nowrap text-white">
+      <span>Shopping Cart</span>
+    </span>
+  </div>
+  <!-- Rutas -->
+  <ul class="space-y-2">
+    <li *ngFor="let route of navigation" (click)="closeSidenav()">
+      <div >
+        <a *ngIf="!route.hidden" [routerLink]="route.link" #rla="routerLinkActive" routerLinkActive
+          class="outline-none flex items-center p-2 text-base font-normal rounded-md hover:bg-accent-50 hover:text-primary-800 text-white"
+          [ngClass]="{
+          'text-sky-50': rla.isActive,
+          'bg-sky-800': rla.isActive,
+          'text-opacity-100': rla.isActive
+        }">
+          <!-- Icono -->
+          <div class="flex items-center">
+            <mat-icon [svgIcon]="route.icon"></mat-icon>
+          </div>
+          <div class="ml-3">
+            {{ route.name  }}
+          </div>
+        </a>
+      </div>
+
+    </li>
+  </ul>
+</div>
