@@ -29,6 +29,22 @@ Añade nuevos productos al catálogo de cada sucursal
 Añade todos los productos que necesites, al finalizar tienes disponible el carrito de compra para efectuar el cobro.
 ![image](https://user-images.githubusercontent.com/68396707/236650558-948f9c01-f8ef-4c3f-8eb7-b3fde1a784e9.png)
 
+
+Configuración necesaria para appsettings.json
+Para configurar la aplicación se necesita la siguiente información en appsettings.json:
+
+{
+  "ConnectionStrings": {
+    "ShoppingCartDB": "Data Source=Sunpop.ddns.net;Initial Catalog=ShoppingCartDB;user=sa;password=Abcd1234;TrustServerCertificate=true;"
+  },
+  "JWT": "C3y*LSGoOnS3OviEI078vbk0O00hv3B%FJi8WlqEN^j@UZ9Q9m",
+  "Cloudinary": {
+    "Cloud": "dn8vyctpa",
+    "ApiKey": "384447785565489",
+    "Secret": "ssYE3dzbv99ta3qzR4RC4ux8jm8"
+  }
+}
+
 ## ----------------------------------------------------------------------------------------------------
 
 ### Project
