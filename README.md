@@ -33,16 +33,18 @@ Añade todos los productos que necesites, al finalizar tienes disponible el carr
 Configuración necesaria para appsettings.json
 Para configurar la aplicación se necesita la siguiente información en appsettings.json:
 
-{
-  "ConnectionStrings": {
-    "ShoppingCartDB": "Data Source=Sunpop.ddns.net;Initial Catalog=ShoppingCartDB;user=sa;password=Abcd1234;TrustServerCertificate=true;"
-  },
-  "JWT": "C3y*LSGoOnS3OviEI078vbk0O00hv3B%FJi8WlqEN^j@UZ9Q9m",
-  "Cloudinary": {
-    "Cloud": "dn8vyctpa",
-    "ApiKey": "384447785565489",
-    "Secret": "ssYE3dzbv99ta3qzR4RC4ux8jm8"
-  }
+{ 
+	"ConnectionStrings": 
+	{ 
+		"DBSQL": "<CadenaDeConexión>" 
+	},
+ 	"JWT": "<PrivateKey>", 
+	"Cloudinary":
+	 { 
+		"Cloud": "<CloudinaryCloudName>", 
+		"ApiKey": "<ApiCloudinaryKey>", 
+		"Secret": "<SecretKeyCloudinary>" 
+	} 
 }
 
 ## ----------------------------------------------------------------------------------------------------
